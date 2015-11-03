@@ -21,7 +21,7 @@
       <div id="menubar">
         <ul id="menu">
           <li class="selected"><a href="index.html">Home</a></li>
-          <li><a href="page.html">A Page</a></li>
+          <li><a href="guides.html">Guides</a></li>
           <li><a href="another_page.html">Another Page</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -35,13 +35,16 @@
             <h3>Useful Links</h3>
             <ul>
               <h4>Official links</h4>
-              <li><a href="https://github.com/chris-belcher/joinmarket">JoinMarket Github</a></li>
-              <li><a href="https://github.com/tailsjoin/tailsjoin">Tailsjoin Github</a></li>
-              <li><a href="http://ruc47yiosooolrzw.onion/">Hidden Service Orderbook</a></li>
-              <li><a href="https://tails.boum.org">Tails Operating System</a></li>
+		<li><a href="https://github.com/chris-belcher/joinmarket">JoinMarket Github</a></li>
+		<li><a href="https://github.com/tailsjoin/tailsjoin">Tailsjoin Github</a></li>
+		<li><a href="http://ruc47yiosooolrzw.onion/">Orderbook .onion</a></li>
+		<li><a href="https://tails.boum.org">Tails Operating System</a></li>
               <h4>Social links</h4>
-              <li><a href="https://reddit.com/r/joinmarket">JoinMarket Subreddit</a></li>
-              <li><a href="">JoinMarket BitcoinTalk Thread</a></li>
+		<li><a href="https://reddit.com/r/joinmarket">JoinMarket Subreddit</a></li>
+		<li><a href="https://bitcointalk.org/index.php?topic=919116.msg10096563">JoinMarket BitcoinTalk</a></li>
+              <h4>Other links</h4>
+		<li><a href="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1st-Glimpse-JoinMarket.png">1st Look: Infographic</a></li>
+		<li><a href="https://bitcointalk.org/index.php?topic=279249.0">GMaxwell CoinJoin Thread</a></li>
             </ul>
           </div>
           <div class="sidebar_base"></div>
@@ -61,15 +64,48 @@
         </div>
       </div>
       <div id="content">
-        <h1>Welcome to my project: tailsjoin!</h1>
-        <p>Tailsjoin is simply the combination of two existing projects. Tails: the amnesiac incognito live system, and JoinMarket: CoinJoin implementation with incentive.</p>
+        <h1>Welcome Privacy Oriented Bitcoiner!</h1>
+	  <p>If you've found your way here then most likely you know what Tails is and what Bitcoin is, and if you're using an amnesiac, tor only operating system then you're probably concerned (rightly so) with privacy. Well hooray for you, you're already well ahead of the flock and not the lowest hanging fruit. If you're not yet familiar with Tails, please see the sidebar now.</p>
+	  <p>Ok, so we got rid of the noobs that haven't used the OS yet. Hooray for us. Now I'm going to go out on a limb here and guess that you are using Electrum or (please don't say it's true) an online wallet for your bitcoin transactions. We can do better than that. Let's stop those bad habits now and up our opsec <strong>before</strong> something bad happens. This way you don't end up being the person that wishes they took security seriously after it's too late, or the person that can't move their funds because a site is down.</p>
+	  <p>This is my project, tailsjoin. I've written some scripts that install JoinMarket, and can also install Bitcoin Core (recommended, but not required) to add some much needed anonymity for bitcoiners using Tails.</p>
         <h2>Wait, what is JoinMarket?</h2>
-        <p>Ok, "CoinJoin implementation with incentive" doesn't even begin to do justice to this project. Have a look at <a href="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1st-Glimpse-JoinMarket.png">this</a> infographic done by <strong>sofiab1</strong>.</p>
-	<h3>More to come soon...</h3>
+	  <h5><strong><a href="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1st-Glimpse-JoinMarket.png">This</a></strong> is an infographic done by <strong>sofiab1</strong> that explains it quite well, but I'll also take a try.</h5>
+	    <ul>
+	    <h3>CoinJoin</h3>
+		<li>CoinJoin is a type of bitcoin transaction that has multiple inputs, and multiple outputs. An outside observer can only see all of these origin and destination addresses, but they can't tell which belongs to which.</li>
+		<li>CoinJoin is the brainchild of Gregory Maxwell. See the sidebar for Maxwells thread on BitcoinTalk that includes technical information.</li>
+		<li><strong><a href="https://chain.so/tx/722bb2662cb2ef9b4a2693e52ba82c44cea1042349f1aa6e71e28a3947aa4144">CoinJoin transaction on the blockchain.</a></strong></li>
+		  <h5>Wow, that sounds and looks great. No one can tell which address paid to which. Why isn't everybody doing this with their transactions?</h5>
+	    <h3>The Problem</h3>
+		<li>To produce these transactions one must work with others to each create and sign their portion.</li>
+		<li>How do we find these "other" people that are willing to make these transactions with us, and how can we trust them to create and sign their part without robbing us?</li>
+	    <h3>The JoinMarket Solution</h3>
+		<li>Those willing to make these transactions with others for a <strong>small</strong> fee (typical fees .001%) sit and wait for those that wish to crate a CoinJoin transaction.</li>
+		<li>Fees are very low because anyone with bitcoin can offer them to join, and there is very low risk.</li>
+		<li>There are around 1500 BTC sitting there waiting to be joined with at any given time.</li>
+	    </ul>
+	<h2>How is this secure?</h2>
+	  <ul>
+	  <h3>Wallet</h3>
+	    <li>Generate a <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a> wallet with a 12 word recovery seed.</li>
+	    <li>Wallet is always encrypted when at rest, passphrase is required on creation of a new wallet.</li>
+	  <h3>Smart Contracts</h3>
+	    <li>When you create a transaction with the other parties involved, you are creating a smart contract that will only execute if done properly.</li>
+	    <li>Even if a malicious actor tried to fool you into signing a bad transaction, the code would have you reject it immediately.</li>
+	  <h3>Decentralized</h3>
+	    <li>As I mentioned anyone with bitcoin can participate and offer their funds for joining, for a fee. Thus incentivizing those with bitcoin in cold storage to make a few satoshis with them.</li>
+	  <h3>Private</h3>
+	    <li>Messaging between parties is encrypted and done over private message individually with each participant.</li>
+	    <li>Each participant knows only their part of the transaction. Therefore it would take every member of the transaction to work together to deanonymize one of them.</li>
+	    <li>With Tails all of your connections are over Tor.</li>
+	  </ul>
+	  <hr /><br />
+	  <p>I think that's a pretty good synopsis on JoinMarket. If you wish to get more in depth and/or technical info then please explore the links in the sidebar.</p>
+	  <p>When you're ready to get your hands dirty head over to the <strong><a href="guides.html">guides</a></strong>.</p>
       </div>
     </div>
     <div id="footer">
-      <p><a href="index.html">Home</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact</a></p>
+      <p><a href="index.html">Home</a> | <a href="guides.html">Guides</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact</a></p>
     </div>
     <p>&nbsp;</p>
   </div>
