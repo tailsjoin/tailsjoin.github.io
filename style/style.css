@@ -27,7 +27,7 @@ h1
 h2, h3, h4, h5, h6 
 { font: normal 175% 'century gothic', arial, sans-serif;
   color: #43423F;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   padding: 5px 0 5px 0;}
 
 h2
@@ -40,13 +40,13 @@ h3
 
 h4, h5, h6
 { margin: 0;
-  padding: 0 0 5px 0;
+  padding: 0 0 7px 0;
   font: normal 120% arial, sans-serif;
   color: #B60000;}
 
 h5, h6
-{ font: bold 95% arial, sans-serif;
-  color: #888;}
+{ font: 95% arial, sans-serif;
+  color: #43423F;}
 
 h6
 { color: #362C20;}
@@ -242,7 +242,7 @@ ul#menu li a:hover
   margin: 0 0 2px 0; 
   padding: 0 0 4px 10px;
   line-height: 1.5em;}
-
+  
 #footer
 { width: 950px;
   font: normal 90% 'trebuchet ms',  arial, sans-serif;
