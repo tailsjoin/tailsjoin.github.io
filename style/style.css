@@ -46,6 +46,7 @@ h4, h5, h6
 
 h5, h6
 { font: 95% arial, sans-serif;
+  margin: -2px 0 0 0;
   color: #43423F;}
 
 h6
