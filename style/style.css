@@ -45,7 +45,7 @@ h4, h5, h6
   color: #B60000;}
 
 h5, h6
-{ font: italic 95% arial, sans-serif;
+{ font: bold 95% arial, sans-serif;
   color: #888;}
 
 h6
@@ -55,7 +55,7 @@ a, a:hover
 { background: transparent;
   outline: none;
   text-decoration: none;
-  color: #51A9FB;}
+  color: #0040FF;}
 
 a:hover
 { text-decoration: none;
@@ -128,6 +128,16 @@ ol li
 { font-size: 120%;
   padding: 4px 0 0 0;
   color: #A8AA94;}
+  
+#logo_text h2 a
+{ background: transparent;
+  outline: none;
+  text-decoration: none;
+  color: #51A9FB;}
+  
+#logo_text h2 a:hover
+{ text-decoration: none;
+  color: #5D5D5D;}
 
 #menubar
 { height: 46px;
@@ -206,11 +216,11 @@ ul#menu li a:hover
   margin: 0px 0 0px 0;}
 
 .sidebar_item li
-{ list-style: none; 
+{ list-style: none;
   padding: 0 0 6px 0;margin: 0; }
 
 .sidebar_item li a, .sidebar_item li a:hover
-{ padding: 0 0 0 35px;
+{ padding: 1 0 1 25px;
   display: block;
   background: transparent url(link.png) no-repeat left center;} 
 
@@ -250,7 +260,7 @@ ul#menu li a:hover
   text-decoration: underline;}
 
 #footer a:hover
-{ color: #FFF;
+{ color: #5D5D5D;
   text-decoration: none;}
 
 .search
