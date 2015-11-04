@@ -6,7 +6,7 @@
   <meta name="referer" content="none" />
   <meta name="keywords" content="coinjoin, joinmarket, tails, tor, bitcoin, tailsjoin" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" />
 </head>
 
 <body>
@@ -20,10 +20,10 @@
       </div>
       <div id="menubar">
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li class="selected"><a href="guides.html">Guides</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li class="selected"><a href="../guides.html">Guides</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -68,10 +68,30 @@
         </div>
       </div>
       <div id="content">
+	<h1>Installing JoinMarket</h1>
+	  <h2>You have an important choice for how to install:</h2>
+	   <ol>
+	    <h3><li>With Bitcoin Core (best practice)</li></h3>
+	      <ul>
+		<li>Requires about 50GB of free space.</li>
+		<li>Takes some days to initially download the blockchain.
+		<li><strong>Offers maximum privacy</strong> by not relying on third parties to check address information.</li>
+		<li><strong>Offers complete control</strong> over your funds. You push your transactions over Tor, again eliminating third parties.</li>
+		<li>When Electrum, Blockchain.info, etc. are having problem making transactions Bitcoin Core is not. It is the client that is the foundation of the network.</li>
+		<li>Totally worth it.</li>
+	      </ul>
+	    <h3><li>Without Bitcoin Core</li></h3>
+	      <ul>
+		<li><strong>Less private and less secure:</strong> this relies on Blockr.io to gather address and transaction data. Blockr is owned by Coinbase. This give them the ability to make correlations between your addresses if they choose.</li>
+		<li>Balance checks are much slower</li>
+		<li>If Blockr is down for whatever reason then you won't be able to push transactions natively, and JoinMarket won't work at all for you.</li>
+		<li>Works "out of the box," and with smaller usb devices. This is the quicker option for setting up JoinMarket.</li>
+	      </ul>
+	   </ol>
       </div>
     </div>
     <div id="footer">
-      <p><a href="index.html">Home</a> | <a href="guides.html">Guides</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a></p>
+      <p><a href="../index.html">Home</a> | <a href="../guides.html">Guides</a> | <a href="../faq.html">FAQ</a> | <a href="../contact.html">Contact</a></p>
     </div>
   </div>
 </body>
