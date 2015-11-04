@@ -227,7 +227,7 @@ ul#menu li a:hover
 
 .sidebar_item li a.selected
 { color: #444;
-  text-decoration: none;} 
+  text-decoration: none;}
 
 #content
 { text-align: left;
@@ -335,3 +335,19 @@ table tr td
 { background: #DDD;
   color: #47433F;
   border-top: 1px solid #FFF;}
+
+pre, code
+{ direction: ltr;
+  text-align: left;}
+  
+pre
+{ border: solid 1.2px #43423F;
+  font-size: 1.3em; 
+  color: black; 
+  margin: 10px; 
+  padding:10px; 
+  background: #FFF;}
+
+code
+{ font-size:1.3em;
+  color: black;}

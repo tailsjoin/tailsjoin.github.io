@@ -60,22 +60,35 @@
 	   <ol>
 	    <h3><li><a href="#withbitcoin">With Bitcoin Core</a> (best practice)</li></h3>
 	      <ul>
-		<li>Requires about 50GB of free space.</li>
+		<li>The blockchain takes up about 55GB of disk space.</li>
 		<li>Takes some days to initially download the blockchain.
 		<li><strong>Offers maximum privacy</strong> by not relying on third parties to check address information.</li>
 		<li><strong>Offers complete control</strong> over your funds. You push your transactions over Tor, again eliminating third parties.</li>
 		<li>When Electrum, Blockchain.info, etc. are having problem making transactions Bitcoin Core is not. It is the client that is the foundation of the network.</li>
 		<li>Totally worth it.</li>
 	      </ul>
-	    <h3><li><a href="#withoutbitcoin">Without Bitcoin Core</a></li></h3>
+	    <h3><li><a href="#withoutbitcoin">Without Bitcoin Core</a> (makes me sad)</li></h3>
 	      <ul>
 		<li><strong>Less private and less secure:</strong> this relies on Blockr.io to gather address and transaction data. Blockr is owned by Coinbase. This give them the ability to make correlations between your addresses if they choose.</li>
 		<li>Balance checks are much slower.</li>
 		<li>If Blockr is down for whatever reason then you won't be able to push transactions natively, and JoinMarket won't work at all for you.</li>
-		<li>Works "out of the box," and with smaller usb devices. This is the quicker option for setting up JoinMarket.</li>
+		<li>Works "out of the box" and with smaller usb devices.</li>
+		<li>This is the fastest way to use JoinMarket if don't already have a copy of the blockchain.</li>
 	      </ul>
 	   </ol>
-	   <hr size="5" noshade>
+	  <hr size="7" noshade><br />
+	<h1><a name="withbitcoin">Installing <em>With</em> Bitcoin Core</a></h1>
+	<h3>What you will need:</h3>
+	  <ol>
+	    <li>A USB device with Tails installed <strong>and persistence enabled.</strong> Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	    <li>At least 60GB of free space on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
+	  </ol>
+	  <hr size="5" noshade><br />
+	<h1><a name="withoutbitcoin">Installing <em>Without</em> Bitcoin Core</a></h1>
+	<h3>What you will need:</h3>
+	  <ol>
+	    <li>A USB device with Tails installed <strong>and persistence enabled.</strong> Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	  </ol>
       </div>
     </div>
     <div id="footer">
