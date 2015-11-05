@@ -12,11 +12,12 @@ body
 
 p
 { font-size: 15px;
-  padding: 0 0 15px 0;
+  padding: 10px 0 10px 0;
   line-height: 1.5em;}
 
 img
-{ border: 0;}
+{ border: solid 1px #43423F;
+  margin: 8px 10px 10px 10px;}
 
 h1
 { font: normal 225% 'century gothic', arial, sans-serif;
@@ -72,14 +73,14 @@ ul li
 
 ol
 { margin: 8px 0 22px 20px;
-  font-size: 14px;}
+  font-size: 16px;}
 
 ol li
 { margin: 0 0 11px 0;
-  font-size: 14px;}
+  font-size: 16px;}
 
 li
-{ margin: 0 0 0 18px;}
+{ margin: 0 0 0 20px;}
 
 .left
 { float: left;
@@ -187,7 +188,7 @@ ul#menu li a:hover
   overflow: hidden;
   margin: 44px auto 0 auto;
   padding: 10px 0 0 25px;
-  background: #EEE;
+  background: #CAC5C5;
   border-top: 0;
   border-bottom: 0;
   color: #5D5D5D;} 
@@ -196,14 +197,6 @@ ul#menu li a:hover
 { float: right;
   width: 224px;
   padding: 10px 20px 20px 0;}
-
-.sidebar_top, .sidebar_base
-{ width: 222px;
-  height: 14px;
-  background: transparent url(side_top.png) no-repeat;}
-
-.sidebar_base
-{ background: url(side_base.png) no-repeat;}
 
 .sidebar
 { float: right;
@@ -223,12 +216,7 @@ ul#menu li a:hover
 
 .sidebar_item li
 { list-style: none;
-  padding: 0 0 6px 0;margin: 0; }
-
-.sidebar_item li a, .sidebar_item li a:hover
-{ padding: 1 0 1 25px;
-  display: block;
-  background: transparent url(link.png) no-repeat left center;} 
+  padding: 0 0 6px 0;margin: 2; }
 
 .sidebar_item li a.selected
 { color: #444;
@@ -268,13 +256,6 @@ ul#menu li a:hover
 #footer a:hover
 { color: #5D5D5D;
   text-decoration: none;}
-
-.search
-{ color: #5D5D5D; 
-  border: 1px solid #BBB; 
-  width: 134px; 
-  padding: 4px; 
-  font: 100% arial, sans-serif;}
 
 .form_settings
 { margin: 15px 0 0 0;}
@@ -347,12 +328,15 @@ pre, code
   
 pre
 { border: solid 1.2px #43423F;
-  font-size: 1.3em; 
+  font-family: monospace;
+  font-size: 13px;
+  width: 100%;
   color: black; 
   margin: 10px; 
   padding:10px; 
   background: #FFF;}
 
 code
-{ font-size:1.3em;
+{ font-family: monospace;
+  font-size: 15px;
   color: black;}
