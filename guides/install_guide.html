@@ -80,7 +80,7 @@
 	<p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
 	<h3>What you will need:</h3>
 	  <ul>
-	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
 	    <li><strong>At least 60GB of free space</strong> on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
 	    <li>An internet connection.</li>
 	  </ul>
@@ -139,7 +139,7 @@ gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	  <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
 	    <ol>
 	      <li><p>Run bitcoind from Tails and start building the blockchain from peers. This will take a long time to say the least. I've heard of this taking over a week. <strong>If you have another device to download the blockchain over clearnet <a href="#methodtwo">skip to the second method.</a></strong></p>
-	      <p>To proceed with this path we must decide now which folder will hold our block data. It can be anywhere you'd like as long <strong>as your within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+	      <p>To proceed with this path we must decide now which folder will hold our block data. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
 		<pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
 	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
 		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
@@ -195,7 +195,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 	      <p>First thing you'll need to do is <a href="https://bitcoin.org/en/download">download bitcoin</a> for your specific operating system and bootstrap the client by <strong>letting it run until it has collected all the blocks.</strong></p>
 	      <p><a href="https://en.bitcoin.it/wiki/Data_directory">Find your data directory</a> and copy the folders <code>blocks</code> and <code>chainstate</code> to a usb device (external hard drive, usb stick, internal hdd, etc.). <strong>Make sure you have enough space on your device!</strong></p>
 	      <p>Start Tails <strong>with persistence enabled and an administrator password set.</strong></p>
-	      <p>Next we're going to make our bitcoin folder. It can be anywhere you'd like as long <strong>as your within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+	      <p>Next we're going to make our bitcoin folder. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
 	      <pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
 	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
 		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
@@ -256,7 +256,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 	<h1 style="text-align: center">Installing <strong>Without</strong> Bitcoin Core<h1>
 	<h3>What you will need:</h3>
 	  <ul>
-	    <li>A USB device with Tails installed, <strong>an administator password set, and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
 	    <li>An internet connection.</li>
 	  </ul>
       </div>
