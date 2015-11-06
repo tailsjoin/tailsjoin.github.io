@@ -59,29 +59,29 @@
 	  <h2>You have an important choice for how to install:</h2>
 	    <h3><li><a href="#withbitcoin">With Bitcoin Core</a> (best practice)</li></h3>
 	      <ul>
-		<li>The blockchain takes up about 55GB of disk space.</li>
+		<li>The blockchain takes up about <strong>55GB of disk space.</strong></li>
 		<li>Takes some days to initially download the blockchain.
 		<li><strong>Offers maximum privacy</strong> by not relying on third parties to check address information.</li>
 		<li><strong>Offers complete control</strong> over your funds. You push your transactions over Tor, again eliminating third parties.</li>
 		<li>When Electrum, Blockchain.info, etc. are having problem making transactions Bitcoin Core is not. It is the client that is the foundation of the network.</li>
-		<li>Totally worth it!</li>
+		<li><strong>Totally worth it!</strong></li>
 	      </ul>
 	    <h3><li><a href="#withoutbitcoin">Without Bitcoin Core</a> (makes me sad)</li></h3>
 	    <ul>
 	      <li><strong>Less private and less secure:</strong> this relies on Blockr.io to gather address and transaction data. Blockr is owned by Coinbase. This give them the ability to make correlations between your addresses if they choose.</li>
 	      <li>Balance checks are much slower.</li>
-	      <li>If Blockr is down for whatever reason then you won't be able to push transactions natively, and JoinMarket won't work at all for you.</li>
+	      <li><strong>If Blockr is down, you're down.</strong> You won't be able to push transactions natively or check balances. Basically JoinMarket won't work at all for you.</li>
 	      <li>Works "out of the box" and with smaller usb devices.</li>
-	      <li>This is the fastest way to use JoinMarket if don't already have a copy of the blockchain.</li>
+	      <li>This is the <strong>fastest way to use JoinMarket</strong> if don't already have a copy of the blockchain.</li>
 	    </ul>
 	  <hr size="7" noshade><br />
 	<h1 style="text-align: center"><a name="withbitcoin">Installing <strong>With</strong> Bitcoin Core</a></h1>
-	<p>I have written scripts to automate the install of libsodium (JoinMarket crypto library), JoinMarket, and Bitcoin Core. We will utilize these scripts in this guide. I've intentionally written the scripts so that they can be read easily even by non-coders. Please feel free to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> before running them.</p>
+	<p>I have written scripts to automate the install of libsodium (JoinMarket crypto library), JoinMarket, and Bitcoin Core. We will utilize these scripts in this guide. <strong>I've intentionally written the scripts so that they can be read easily even by non-coders. I encourage you to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> them before running.</strong></p>
 	<p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
 	<h3>What you will need:</h3>
 	  <ul>
-	    <li>A USB device with Tails installed <strong>and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
-	    <li>At least 60GB of free space on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
+	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	    <li><strong>At least 60GB of free space</strong> on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
 	    <li>An internet connection.</li>
 	  </ul>
 	  <h3>Overview of what we will be doing:</h3>
@@ -138,8 +138,8 @@ gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	 <h2>Keep reading, you're almost done.</h2>
 	  <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
 	    <ol>
-	      <li><p>Run bitcoind from Tails and start building the blockchain from peers. This will take a long time to say the least. I've heard of this taking over a week. <strong>If you have another device to download the blockchain over clearnet skip to the second method.</strong></p>
-	      <p>To proceed with this path we must decide now which folder will hold our block data. In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+	      <li><p>Run bitcoind from Tails and start building the blockchain from peers. This will take a long time to say the least. I've heard of this taking over a week. <strong>If you have another device to download the blockchain over clearnet <a href="#methodtwo">skip to the second method.</a></strong></p>
+	      <p>To proceed with this path we must decide now which folder will hold our block data. It can be anywhere you'd like as long <strong>as your within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
 		<pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
 	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
 		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
@@ -177,7 +177,7 @@ alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
 
 # User must uncomment and input path to blockchain files
 datadir=/home/amnesia/Persistent/.bitcoin/</pre>
-	      <p><strong>Don't forget to save the file!</strong></p>
+	      <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
 	      <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
 		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
 	      <p>Here's something to make your life easier. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
@@ -188,16 +188,73 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 		<pre>chmod +x ~/Persistent/btcd</pre>
 	      <p>Now you can start bitcoind by opening a terminal and doing:</p>
 	      <pre>cd ~/Persistent && btcd</pre>
+	      <p class="center"><strong>End of method one.</strong></p>
 	     </li>
-	      <li>Download the blockchain on another device over clearnet and copy the files to Tails. On fast internet this can be done in around 24 hours I believe.
-	      <p>If you decide to... </p></li>
+	     <a name="methodtwo"><hr /></a><br>
+	      <li>Download the blockchain on another device over clearnet and copy the files to Tails. <strong>On fast internet this can be done in around 24 hours, there is no security issue, and you save bandwidth for the Tor network.</strong> 
+	      <p>First thing you'll need to do is <a href="https://bitcoin.org/en/download">download bitcoin</a> for your specific operating system and bootstrap the client by letting it run until it has collected all the blocks.</p>
+	      <p><a href="https://en.bitcoin.it/wiki/Data_directory">Find your data directory</a> and copy the folders <code>blocks</code> and <code>chainstate</code> to a usb device (external hard drive, usb stick, internal hdd, etc.). <strong>Make sure you have enough space on your device!</strong></p>
+	      <p>Start Tails <strong>with persistence enabled and administrator password.</strong></p>
+	      <p>Next we're going to make our bitcoin folder. It can be anywhere you'd like as long <strong>as your within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+	      <pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
+	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
+		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
+		<pre>chmod 0600 ~/Persistent/.bitcoin/bitcoin.conf</pre>
+	      <p>Right now your config file looks like this:</p>
+	      <pre>rpcuser=[random generated user]
+rpcpassword=[random generated pass]
+daemon=1
+proxyrandomize=1
+proxy=127.0.0.1:9050
+listen=0
+server=1
+
+# For JoinMarket
+walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
+
+# User must uncomment and input path to blockchain files
+#datadir=</pre>
+	      <p>You need to remove the <code>#</code> from the last line and enter the folder I suggested you create, or a different location of your choice.</p>
+	      <p>You can open a graphical text editor from the terminal.</p>
+	        <pre>gedit ~/Persistent/.bitcoin/bitcoin.conf</pre>
+	      <p>When you're finished your file should look like this:</p>
+		<pre>rpcuser=[random generated user]
+rpcpassword=[random generated pass]
+daemon=1
+proxyrandomize=1
+proxy=127.0.0.1:9050
+listen=0
+server=1
+
+# For JoinMarket
+walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
+
+# User must uncomment and input path to blockchain files
+datadir=/home/amnesia/Persistent/.bitcoin/</pre>
+	      <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
+	      <p>Now you're going to use the file manager to help you copy the folders <code>blocks</code> and <code>chainstate</code> from your usb device to the folder you made.</p>
+	      <p>If you took my suggestion then the folder is:</p> <pre>/home/amnesia/Persistent/.bitcoin</pre>
+	      <p><strong>It is a hidden folder so make sure to set the file manager to show hidden items.</strong></p>
+	      <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
+		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
+	      <p>Here's something to make your life easier. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
+		<code>echo '#!/bin/bash</code><br>
+		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
+		<code>exit 0' > ~/Persistent/btcd</code>
+	      <p>Make it executable.</p>
+		<pre>chmod +x ~/Persistent/btcd</pre>
+	      <p>Now you can start bitcoind by opening a terminal and doing:</p>
+	      <pre>cd ~/Persistent && btcd</pre>
+	      <p class="center"><strong>End of Installing With Bitcoin Core.</strong></p>
+	      </li>
 	    </ol>
-	  <p></p>
 	  <hr size="5" noshade><br />
 	<h1 style="text-align: center"><a name="withoutbitcoin">Installing <strong>Without</strong> Bitcoin Core</a><h1>
 	<h3>What you will need:</h3>
 	  <ul>
-	    <li>A USB device with Tails installed <strong>and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
+	    <li>A USB device with Tails installed, <strong>an administator password set, and persistence enabled.</strong><br>Tails documentation on install <a href="https://tails.boum.org/getting_started/index.en.html">here.</a></li>
 	    <li>An internet connection.</li>
 	  </ul>
       </div>
