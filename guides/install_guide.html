@@ -134,7 +134,7 @@ gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	  <p>Now we can actually run the script. The one we will run is: <code>tailsjoin-fullnode.sh</code>.</p>
 	  <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script and I'll see you again after!</p>
 	    <pre>./tailsjoin-fullnode.sh</pre>
-	<h1>4. Post installation notes</h1>
+	<h1>4. Bootstrap the client</h1>
 	 <h2>Keep reading, you're almost done.</h2>
 	  <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
 	    <ol>
@@ -184,8 +184,6 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 		<code>echo '#!/bin/bash</code><br>
 		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
 		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
-	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
-	      <pre>cd ~/Persistent && btcd</pre>
 	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
 	      <pre>cd ~/Persistent && btcd</pre>
 	      <p class="center"><strong>End of method one.</strong></p>
@@ -246,7 +244,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 		<code>echo '#!/bin/bash</code><br>
 		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
 		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
-	      <p>Froyou can start bitcoind by opening a terminal and doing:</p>
+	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
 	      <pre>cd ~/Persistent && btcd</pre>
 	      <p class="center"><strong>End of Method Two and Installing With Bitcoin Core.</strong></p>
 	      </li>
