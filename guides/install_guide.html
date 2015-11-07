@@ -55,6 +55,7 @@
         </div>
       </div>
       <div id="content">
+	<a name="top"></a>
 	<h1 class="center">Installing JoinMarket</h1>
 	  <h2 class="center">You have an important choice for how to install:</h2>
 	    <h3><li><a href="#withbitcoin">With Bitcoin Core</a> (best practice)</li></h3>
@@ -86,17 +87,19 @@
 	  </ul>
 	  <h3>Overview of what we will be doing:</h3>
 	  <ol>
-	    <li>Start Tails.</li>
-	    <li>Download and verify my script from Github.</li>
-	    <li>Run script.</li>
-	    <li>Bootstrap the client.</li>
+	    <li><a href="#startone">Start Tails.</a></li>
+	    <li><a href="#verifyone">Download and verify my script from Github.</a></li>
+	    <li><a href="#runone">Run script.</a></li>
+	    <li><a href="#bootstrapone">Bootstrap the client.</a></li>
 	  </ol>
+	<a name="startone"></a>
 	<h1>1. Starting Tails</h1>
 	  <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
 	  <p>You must also select "Yes" on the "More options?" selection.</p>
 	    <img src="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1_more-options.png" />
 	  <p>On the next screen set an administator password.</p>
 	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
+	<a name="verifyone"></a>
 	<h1>2. Download and verify script</h1>
 	  <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
 	  <p>Once you have the terminal open you can download my scripts from Github.</p>
@@ -127,13 +130,15 @@ gpg:                using RSA key 0x1B9184DF9E117718
 gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	  <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
 	    <pre>cd .. && srm -drv tailsjoin/</pre>
-	  <p>Once that is finished start over from the beginning of step 2.</p>
+	  <p>Once that is finished start over from the beginning of <a href="#verifyone">step 2.</a></p>
+	<a name="runone"></a>
 	<h1>3. Run the script</h1>
 	  <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
 	    <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
 	  <p>Now we can actually run the script. The one we will run is: <code>tailsjoin-fullnode.sh</code>.</p>
 	  <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script and I'll see you again after!</p>
 	    <pre>./tailsjoin-fullnode.sh</pre>
+	<a name="bootstrapone"></a>
 	<h1>4. Bootstrap the client</h1>
 	 <h2>Keep reading, you're almost done.</h2>
 	  <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
@@ -186,7 +191,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
 	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
 	      <pre>cd ~/Persistent && btcd</pre>
-	      <p class="center"><strong>End of method one.</strong></p>
+	      <p class="center"><strong>- End of Method One -</strong></p>
 	     </li>
 	     <a name="methodtwo"><hr /></a><br>
 	      <li>Download the blockchain on another device over clearnet and copy the files to Tails. <strong>On fast internet this can be done in around 24 hours, there is no security issue, and you save bandwidth for the Tor network.</strong> 
@@ -246,7 +251,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
 	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
 	      <pre>cd ~/Persistent && btcd</pre>
-	      <p class="center"><strong>End of Method Two and Installing With Bitcoin Core.</strong></p>
+	      <p class="center"><strong>- End of Method Two -<br>- End of Installing With Bitcoin Core -</strong></p>
 	      </li>
 	    </ol>
 	  <a name="withoutbitcoin"><hr size="5" noshade><br /></a>
@@ -260,10 +265,11 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 	  </ul>
 	    <h3>Overview of what we will be doing:</h3>
 	  <ol>
-	    <li>Start Tails.</li>
-	    <li>Download and verify my script from Github.</li>
-	    <li>Run script.</li>
+	    <li><a href="#starttwo">Start Tails.</a></li>
+	    <li><a href="#verifytwo">Download and verify my script from Github.</a></li>
+	    <li><a href="#runtwo">Run script.</a></li>
 	  </ol>
+	<a name="starttwo"></a>
 	<h1>1. Starting Tails</h1>
 	  <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
 	  <p>You must also select "Yes" on the "More options?" selection.</p>
@@ -271,6 +277,7 @@ datadir=/home/amnesia/Persistent/.bitcoin/</pre>
 	  <p>On the next screen set an administator password.</p>
 	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
 	<h1>2. Download and verify script</h1>
+	<a name="verifytwo"></a>
 	  <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
 	  <p>Once you have the terminal open you can download my scripts from Github.</p>
 	    <pre>git clone https://github.com/tailsjoin/tailsjoin</pre>
@@ -301,6 +308,7 @@ gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	  <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
 	    <pre>cd .. && srm -drv tailsjoin/</pre>
 	  <p>Once that is finished start over from the beginning of step 2.</p>
+	<a name="runtwo"></a>
 	<h1>3. Run the script</h1>
 	  <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
 	    <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
@@ -308,7 +316,8 @@ gpg: BAD signature from "tailsjoin" [unknown]</pre>
 	  <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script. Once it's finished you'll be ready to start using JoinMarket!</p>
 	    <pre>./tailsjoin.sh</pre>
 	  </ul>
-	  <p class="center">End of Installing Without Bitcoin Core.</p>
+	  <strong><p class="center">- End of Installing Without Bitcoin Core -</p></strong>
+	  <a href="#top">Top of Page</a>
       </div>
     </div>
     <div id="footer">
