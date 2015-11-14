@@ -35,122 +35,122 @@
             <h3>Useful Links</h3>
             <ul>
               <h4>Official</h4>
-		<li><a href="https://github.com/chris-belcher/joinmarket">JoinMarket Github</a></li>
-		<li><a href="https://github.com/tailsjoin/tailsjoin">Tailsjoin Github</a></li>
-		<li><a href="http://ruc47yiosooolrzw.onion/">Orderbook .onion</a></li>
-		<li><a href="https://tails.boum.org">Tails Operating System</a></li>
+                <li><a href="https://github.com/chris-belcher/joinmarket">JoinMarket Github</a></li>
+                <li><a href="https://github.com/tailsjoin/tailsjoin">Tailsjoin Github</a></li>
+                <li><a href="http://ruc47yiosooolrzw.onion/">Orderbook .onion</a></li>
+                <li><a href="https://tails.boum.org">Tails Operating System</a></li>
               <h4>Social</h4>
-		<li><a href="https://reddit.com/r/joinmarket">JoinMarket Subreddit</a></li>
-		<li><a href="https://bitcointalk.org/index.php?topic=919116.msg10096563">JoinMarket BitcoinTalk</a></li>
-		<li><a href="https://webchat.freenode.net/?channels=%23joinmarket">IRC Webchat</a>
-		  <li>IRC Freenode: #joinmarket</li>
-		</li>
+                <li><a href="https://reddit.com/r/joinmarket">JoinMarket Subreddit</a></li>
+                <li><a href="https://bitcointalk.org/index.php?topic=919116.msg10096563">JoinMarket BitcoinTalk</a></li>
+                <li><a href="https://webchat.freenode.net/?channels=%23joinmarket">IRC Webchat</a>
+                  <li>IRC Freenode: #joinmarket</li>
+                </li>
               <h4>Other</h4>
-		<li><a href="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1st-Glimpse-JoinMarket.png">1st Look: Infographic</a></li>
-		<li><a href="https://bitcointalk.org/index.php?topic=279249.0">Maxwell CoinJoin Post</a></li>
-		<li><a href="https://github.com/tailsjoin/tailsjoin.github.io">This Sites Code</a></li>
+                <li><a href="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1st-Glimpse-JoinMarket.png">1st Look: Infographic</a></li>
+                <li><a href="https://bitcointalk.org/index.php?topic=279249.0">Maxwell CoinJoin Post</a></li>
+                <li><a href="https://github.com/tailsjoin/tailsjoin.github.io">This Sites Code</a></li>
             </ul>
           </div>
           <div class="sidebar_base"></div>
         </div>
       </div>
       <div id="content">
-	<a name="top"></a>
-	<h1 class="center">Installing JoinMarket</h1>
-	  <h2 class="center">You have an important choice for how to install:</h2>
-	    <h3><li><a href="#withbitcoin">With Bitcoin Core</a> (best practice)</li></h3>
-	      <ul>
-		<li>The blockchain takes up about <strong>55GB of disk space.</strong></li>
-		<li>Takes some days to initially download the blockchain.
-		<li><strong>Offers maximum privacy</strong> by not relying on third parties to check address information.</li>
-		<li><strong>Offers complete control</strong> over your funds. You push your transactions over Tor, again eliminating third parties.</li>
-		<li>When Electrum, Blockchain.info, etc. are having problem making transactions Bitcoin Core is not. It is the client that is the foundation of the network.</li>
-		<li><strong>Totally worth it!</strong></li>
-	      </ul>
-	    <h3><li><a href="#withoutbitcoin">Without Bitcoin Core</a> (makes me sad)</li></h3>
-	    <ul>
-	      <li><strong>Less private and less secure:</strong> this relies on Blockr.io to gather address and transaction data. Blockr is owned by Coinbase. This gives them the ability to make correlations between your addresses if they choose.</li>
-	      <li>Balance checks are much slower.</li>
-	      <li><strong>If Blockr is down, you're down.</strong> You won't be able to push transactions natively or check balances. Basically JoinMarket won't work at all for you.</li>
-	      <li>Works "out of the box" and with smaller usb devices.</li>
-	      <li>This is the <strong>fastest way to use JoinMarket</strong> if you don't already have a copy of the blockchain.</li>
-	    </ul>
-	  <a name="withbitcoin"><hr size="7" noshade><br /></a>
-	<h1 style="text-align: center">Installing <strong>With</strong> Bitcoin Core</h1>
-	<p>I have written scripts to automate the install of libsodium (JoinMarket crypto library), JoinMarket, and Bitcoin Core. We will utilize these scripts in this guide. <strong>I've intentionally written the scripts so that they can be read easily even by non-coders. I encourage you to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> before running them.</strong></p>
-	<p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
-	<h3>What you will need:</h3>
-	  <ul>
-	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
-	    <li><strong>At least 60GB of free space</strong> on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
-	    <li>An internet connection.</li>
-	  </ul>
-	  <h3>Overview of what we will be doing:</h3>
-	  <ol>
-	    <li><a href="#startone">Start Tails.</a></li>
-	    <li><a href="#verifyone">Download and verify my script from Github.</a></li>
-	    <li><a href="#runone">Run script.</a></li>
-	    <li><a href="#bootstrapone">Bootstrap the client.</a></li>
-	  </ol>
-	<a name="startone"></a>
-	<h1>1. Starting Tails</h1>
-	  <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
-	  <p>You must also select "Yes" on the "More options?" selection.</p>
-	    <img src="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1_more-options.png" />
-	  <p>On the next screen set an administator password.</p>
-	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
-	<a name="verifyone"></a>
-	<h1>2. Download and verify script</h1>
-	  <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
-	  <p>Once you have the terminal open you can download my scripts from Github.</p>
-	    <pre>git clone https://github.com/tailsjoin/tailsjoin</pre>
-	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/3_git-clone-tailsjoin.png" />
-	  <p>We need to verify the scripts, but first you need to get my signing key.</p>
-	    <pre>gpg --recv-keys 44C5398EA821BB41A0C070521B9184DF9E117718</pre>
-	  <p>You should see an output like this:</p>
-	    <pre>gpg: requesting key 0x1B9184DF9E117718 from hkps server hkps.sks-keyservers.net
+        <a name="top"></a>
+        <h1 class="center">Installing JoinMarket</h1>
+          <h2 class="center">You have an important choice for how to install:</h2>
+            <h3><li><a href="#withbitcoin">With Bitcoin Core</a> (best practice)</li></h3>
+              <ul>
+                <li>The blockchain takes up about <strong>55GB of disk space.</strong></li>
+                <li>Takes some days to initially download the blockchain.
+                <li><strong>Offers maximum privacy</strong> by not relying on third parties to check address information.</li>
+                <li><strong>Offers complete control</strong> over your funds. You push your transactions over Tor, again eliminating third parties.</li>
+                <li>When Electrum, Blockchain.info, etc. are having problem making transactions Bitcoin Core is not. It is the client that is the foundation of the network.</li>
+                <li><strong>Totally worth it!</strong></li>
+              </ul>
+            <h3><li><a href="#withoutbitcoin">Without Bitcoin Core</a> (makes me sad)</li></h3>
+            <ul>
+              <li><strong>Less private and less secure:</strong> this relies on Blockr.io to gather address and transaction data. Blockr is owned by Coinbase. This gives them the ability to make correlations between your addresses if they choose.</li>
+              <li>Balance checks are much slower.</li>
+              <li><strong>If Blockr is down, you're down.</strong> You won't be able to push transactions natively or check balances. Basically JoinMarket won't work at all for you.</li>
+              <li>Works "out of the box" and with smaller usb devices.</li>
+              <li>This is the <strong>fastest way to use JoinMarket</strong> if you don't already have a copy of the blockchain.</li>
+            </ul>
+          <a name="withbitcoin"><hr size="7" noshade><br /></a>
+        <h1 style="text-align: center">Installing <strong>With</strong> Bitcoin Core</h1>
+        <p>I have written scripts to automate the install of libsodium (JoinMarket crypto library), JoinMarket, and Bitcoin Core. We will utilize these scripts in this guide. <strong>I've intentionally written the scripts so that they can be read easily even by non-coders. I encourage you to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> before running them.</strong></p>
+        <p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
+        <h3>What you will need:</h3>
+          <ul>
+            <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
+            <li><strong>At least 60GB of free space</strong> on your USB devices persistent storage or an external storage device with at least 60GB of free space.</li>
+            <li>An internet connection.</li>
+          </ul>
+          <h3>Overview of what we will be doing:</h3>
+          <ol>
+            <li><a href="#startone">Start Tails.</a></li>
+            <li><a href="#verifyone">Download and verify my script from Github.</a></li>
+            <li><a href="#runone">Run script.</a></li>
+            <li><a href="#bootstrapone">Bootstrap the client.</a></li>
+          </ol>
+        <a name="startone"></a>
+        <h1>1. Starting Tails</h1>
+          <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
+          <p>You must also select "Yes" on the "More options?" selection.</p>
+            <img src="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1_more-options.png" />
+          <p>On the next screen set an administator password.</p>
+            <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
+        <a name="verifyone"></a>
+        <h1>2. Download and verify script</h1>
+          <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
+          <p>Once you have the terminal open you can download my scripts from Github.</p>
+            <pre>git clone https://github.com/tailsjoin/tailsjoin</pre>
+            <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/3_git-clone-tailsjoin.png" />
+          <p>We need to verify the scripts, but first you need to get my signing key.</p>
+            <pre>gpg --recv-keys 44C5398EA821BB41A0C070521B9184DF9E117718</pre>
+          <p>You should see an output like this:</p>
+            <pre>gpg: requesting key 0x1B9184DF9E117718 from hkps server hkps.sks-keyservers.net
 gpg: key 0x1B9184DF9E117718: public key "tailsjoin" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)</pre>
-	  <p>My signing key has been imported. Now we can verify the script.</p>
-	    <pre>cd tailsjoin/ && gpg --verify tailsjoin-fullnode.sh.asc tailsjoin-fullnode.sh</pre>
-	  <p>If everything goes well you should see an output like this:</p>
-	    <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
+          <p>My signing key has been imported. Now we can verify the script.</p>
+            <pre>cd tailsjoin/ && gpg --verify tailsjoin-fullnode.sh.asc tailsjoin-fullnode.sh</pre>
+          <p>If everything goes well you should see an output like this:</p>
+            <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
 gpg:                using RSA key 0x1B9184DF9E117718
 gpg: Good signature from "tailsjoin" [unknown]
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 44C5 398E A821 BB41 A0C0  7052 1B91 84DF 9E11 7718</pre>
-	  <p>The date of the signature may change as I make updates to the script. The part we're concerned with is:</p>
-	    <pre>gpg: Good signature from "tailsjoin" [unknown]</pre>
-	  <p>If you had a good signature, then skip to step 3.</p>
-	  <p>If you <strong>did not</strong> have a good signature something wicked happened and you need to download again. Instead of the above output you will see this:</p>
-	    <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
+          <p>The date of the signature may change as I make updates to the script. The part we're concerned with is:</p>
+            <pre>gpg: Good signature from "tailsjoin" [unknown]</pre>
+          <p>If you had a good signature, then skip to step 3.</p>
+          <p>If you <strong>did not</strong> have a good signature something wicked happened and you need to download again. Instead of the above output you will see this:</p>
+            <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
 gpg:                using RSA key 0x1B9184DF9E117718
 gpg: BAD signature from "tailsjoin" [unknown]</pre>
-	  <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
-	    <pre>cd .. && srm -drv tailsjoin/</pre>
-	  <p>Once that is finished start over from the beginning of <a href="#verifyone">step 2.</a></p>
-	<a name="runone"></a>
-	<h1>3. Run the script</h1>
-	  <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
-	    <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
-	  <p>Now we can actually run the script. The one we will run is: <code>tailsjoin-fullnode.sh</code>.</p>
-	  <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script and I'll see you again after!</p>
-	    <pre>./tailsjoin-fullnode.sh</pre>
-	<a name="bootstrapone"></a>
-	<h1>4. Bootstrap the client</h1>
-	 <h2>Keep reading, you're almost done.</h2>
-	  <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
-	    <ol>
-	      <li><p>Run bitcoind from Tails and start building the blockchain from peers. This will take a long time to say the least. I've heard of this taking over a week. <strong>If you have another device to download the blockchain over clearnet <a href="#methodtwo">skip to the second method.</a></strong></p>
-	      <p>To proceed with this path we must decide now which folder will hold our block data. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
-		<pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
-	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
-		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
-		<pre>chmod 0600 ~/Persistent/.bitcoin/bitcoin.conf</pre>
-	      <p>Right now your config file looks like this:</p>
-	      <pre>rpcuser=[random generated user]
+          <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
+            <pre>cd .. && srm -drv tailsjoin/</pre>
+          <p>Once that is finished start over from the beginning of <a href="#verifyone">step 2.</a></p>
+        <a name="runone"></a>
+        <h1>3. Run the script</h1>
+          <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
+            <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
+          <p>Now we can actually run the script. The one we will run is: <code>tailsjoin-fullnode.sh</code>.</p>
+          <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script and I'll see you again after!</p>
+            <pre>./tailsjoin-fullnode.sh</pre>
+        <a name="bootstrapone"></a>
+        <h1>4. Bootstrap the client</h1>
+         <h2>Keep reading, you're almost done.</h2>
+          <h3>Now that everything is installed we need to get the blockchain somehow. There are two options, the choice is up to you.</h3>
+            <ol>
+              <li><p>Run bitcoind from Tails and start building the blockchain from peers. This will take a long time to say the least. I've heard of this taking over a week. <strong>If you have another device to download the blockchain over clearnet <a href="#methodtwo">skip to the second method.</a></strong></p>
+              <p>To proceed with this path we must decide now which folder will hold our block data. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+                <pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
+              <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
+                <pre>mv ~/Persistent/bitcoin-0.11.2/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
+                <pre>chmod 0600 ~/Persistent/.bitcoin/bitcoin.conf</pre>
+              <p>Right now your config file looks like this:</p>
+              <pre>rpcuser=[random generated user]
 rpcpassword=[random generated pass]
 daemon=1
 proxyrandomize=1
@@ -160,15 +160,15 @@ server=1
 
 # For JoinMarket
 walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
-alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/alertnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
 
 # User must uncomment and input path to blockchain files
 #datadir=</pre>
-	      <p>You need to remove the <code>#</code> from the last line and enter the folder I suggested you create, or a different location of your choice.</p>
-	      <p>You can open a graphical text editor from the terminal.</p>
-	        <pre>gedit ~/Persistent/.bitcoin/bitcoin.conf</pre>
-	      <p>When you're finished your file should look like this:</p>
-		<pre>rpcuser=[random generated user]
+              <p>You need to remove the <code>#</code> from the last line and enter the folder I suggested you create, or a different location of your choice.</p>
+              <p>You can open a graphical text editor from the terminal.</p>
+                <pre>gedit ~/Persistent/.bitcoin/bitcoin.conf</pre>
+              <p>When you're finished your file should look like this:</p>
+                <pre>rpcuser=[random generated user]
 rpcpassword=[random generated pass]
 daemon=1
 proxyrandomize=1
@@ -178,33 +178,33 @@ server=1
 
 # For JoinMarket
 walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
-alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/alertnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
 
 # User must uncomment and input path to blockchain files
 datadir=/home/amnesia/Persistent/.bitcoin/</pre>
-	      <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
-	      <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
-		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
-	      <p>Or we can turn the above into an executable script named <code>btcd</code>. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
-		<code>echo '#!/bin/bash</code><br>
-		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
-		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
-	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
-	      <pre>cd ~/Persistent && btcd</pre>
-	      <p class="center"><strong>- End of Method One -</strong></p>
-	     </li>
-	     <a name="methodtwo"><hr /></a><br>
-	      <li>Download the blockchain on another device over clearnet and copy the files to Tails. <strong>On fast internet this can be done in around 24 hours, there is no security issue, and you save bandwidth for the Tor network.</strong> 
-	      <p>First thing you'll need to do is <a href="https://bitcoin.org/en/download">download bitcoin</a> for your specific operating system and bootstrap the client by <strong>letting it run until it has collected all the blocks.</strong></p>
-	      <p><a href="https://en.bitcoin.it/wiki/Data_directory">Find your data directory</a> and copy the folders <code>blocks</code> and <code>chainstate</code> to a usb device (external hard drive, usb stick, internal hdd, etc.). <strong>Make sure you have enough space on your device!</strong></p>
-	      <p>Start Tails <strong>with persistence enabled and an administrator password set.</strong></p>
-	      <p>Next we're going to make our bitcoin folder. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
-	      <pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
-	      <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
-		<pre>mv ~/Persistent/bitcoin-0.11.1/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
-		<pre>chmod 0600 ~/Persistent/.bitcoin/bitcoin.conf</pre>
-	      <p>Right now your config file looks like this:</p>
-	      <pre>rpcuser=[random generated user]
+              <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
+              <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
+                <code>/home/amnesia/Persistent/bitcoin-0.11.2/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
+              <p>Or we can turn the above into an executable script named <code>btcd</code>. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
+                <code>echo '#!/bin/bash</code><br>
+                <code>/home/amnesia/Persistent/bitcoin-0.11.2/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
+                <code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
+              <p>From now on you can start bitcoind by opening a terminal and doing:</p>
+              <pre>cd ~/Persistent && btcd</pre>
+              <p class="center"><strong>- End of Method One -</strong></p>
+             </li>
+             <a name="methodtwo"><hr /></a><br>
+              <li>Download the blockchain on another device over clearnet and copy the files to Tails. <strong>On fast internet this can be done in around 24 hours, there is no security issue, and you save bandwidth for the Tor network.</strong> 
+              <p>First thing you'll need to do is <a href="https://bitcoin.org/en/download">download bitcoin</a> for your specific operating system and bootstrap the client by <strong>letting it run until it has collected all the blocks.</strong></p>
+              <p><a href="https://en.bitcoin.it/wiki/Data_directory">Find your data directory</a> and copy the folders <code>blocks</code> and <code>chainstate</code> to a usb device (external hard drive, usb stick, internal hdd, etc.). <strong>Make sure you have enough space on your device!</strong></p>
+              <p>Start Tails <strong>with persistence enabled and an administrator password set.</strong></p>
+              <p>Next we're going to make our bitcoin folder. It can be anywhere you'd like as long <strong>as you're within the Persistence folder.</strong> In keeping with the design of the bitcoin devs, I suggest making a hidden folder in <code>/home/amnesia/Persistent</code> named <code>.bitcoin</code>.</p>
+              <pre>mkdir ~/Persistent/.bitcoin && chmod 0700 ~/Persistent/.bitcoin</pre>
+              <p>We might as well move our config file over there too, and set the proper permissions for it.</p>
+                <pre>mv ~/Persistent/bitcoin-0.11.2/bin/bitcoin.conf ~/Persistent/.bitcoin/</pre>
+                <pre>chmod 0600 ~/Persistent/.bitcoin/bitcoin.conf</pre>
+              <p>Right now your config file looks like this:</p>
+              <pre>rpcuser=[random generated user]
 rpcpassword=[random generated pass]
 daemon=1
 proxyrandomize=1
@@ -214,15 +214,15 @@ server=1
 
 # For JoinMarket
 walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
-alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/alertnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
 
 # User must uncomment and input path to blockchain files
 #datadir=</pre>
-	      <p>You need to remove the <code>#</code> from the last line and enter the folder I suggested you create, or a different location of your choice.</p>
-	      <p>You can open a graphical text editor from the terminal.</p>
-	        <pre>gedit ~/Persistent/.bitcoin/bitcoin.conf</pre>
-	      <p>When you're finished your file should look like this:</p>
-		<pre>rpcuser=[random generated user]
+              <p>You need to remove the <code>#</code> from the last line and enter the folder I suggested you create, or a different location of your choice.</p>
+              <p>You can open a graphical text editor from the terminal.</p>
+                <pre>gedit ~/Persistent/.bitcoin/bitcoin.conf</pre>
+              <p>When you're finished your file should look like this:</p>
+                <pre>rpcuser=[random generated user]
 rpcpassword=[random generated pass]
 daemon=1
 proxyrandomize=1
@@ -232,92 +232,92 @@ server=1
 
 # For JoinMarket
 walletnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/walletnotify?%s
-alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62602/alertnotify?%s
+alertnotify=curl -sI --connect-timeout 1 http://127.0.0.1:62062/alertnotify?%s
 
 # User must uncomment and input path to blockchain files
 datadir=/home/amnesia/Persistent/.bitcoin/</pre>
-	      <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
-	      <p>Now you're going to use the file manager to help you copy the folders <code>blocks</code> and <code>chainstate</code> from your usb device to the folder you made.</p>
-	      <p>If you took my suggestion then the folder is:</p> <pre>/home/amnesia/Persistent/.bitcoin</pre>
-	      <p><strong>It is a hidden folder so make sure to set the file manager to show hidden items.</strong></p>
-	      <p>After the files have finished copying over you're going to set the proper owner for the files. Open a terminal and do this (substitute your folder if you didn't take my suggestion):</p>
-		<pre>chown -R amnesia:amnesia ~/Persistent/.bitcoin/ ~/Persistent/.bitcoin/*</pre>
-	      <p>Depending on how the permissions were on the files before you copied them, you may need to use <code>sudo</code> before the last command.</p>
-	      <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
-		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
-	      <p>Or we can turn the above into an executable script named <code>btcd</code>. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
-		<code>echo '#!/bin/bash</code><br>
-		<code>/home/amnesia/Persistent/bitcoin-0.11.1/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
-		<code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
-	      <p>From now on you can start bitcoind by opening a terminal and doing:</p>
-	      <pre>cd ~/Persistent && btcd</pre>
-	      <p class="center"><strong>- End of Method Two -<br>- End of Installing With Bitcoin Core -</strong></p>
-	      </li>
-	    </ol>
-	  <a name="withoutbitcoin"><hr size="5" noshade><br /></a>
-	<h1 style="text-align: center">Installing <strong>Without</strong> Bitcoin Core<h1>
-	  <p>I have written scripts to automate the install of libsodium (JoinMarket crypto library) and JoinMarket. We will utilize these scripts in this guide. <strong>I've intentionally written the scripts so that they can be read easily even by non-coders. I encourage you to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> before running them.</strong></p>
-	<p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
-	<h3>What you will need:</h3>
-	  <ul>
-	    <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
-	    <li>An internet connection.</li>
-	  </ul>
-	    <h3>Overview of what we will be doing:</h3>
-	  <ol>
-	    <li><a href="#starttwo">Start Tails.</a></li>
-	    <li><a href="#verifytwo">Download and verify my script from Github.</a></li>
-	    <li><a href="#runtwo">Run script.</a></li>
-	  </ol>
-	<a name="starttwo"></a>
-	<h1>1. Starting Tails</h1>
-	  <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
-	  <p>You must also select "Yes" on the "More options?" selection.</p>
-	    <img src="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1_more-options.png" />
-	  <p>On the next screen set an administator password.</p>
-	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
-	<h1>2. Download and verify script</h1>
-	<a name="verifytwo"></a>
-	  <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
-	  <p>Once you have the terminal open you can download my scripts from Github.</p>
-	    <pre>git clone https://github.com/tailsjoin/tailsjoin</pre>
-	    <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/3_git-clone-tailsjoin.png" />
-	  <p>We need to verify the scripts, but first you need to get my signing key.</p>
-	    <pre>gpg --recv-keys 44C5398EA821BB41A0C070521B9184DF9E117718</pre>
-	  <p>You should see an output like this:</p>
-	    <pre>gpg: requesting key 0x1B9184DF9E117718 from hkps server hkps.sks-keyservers.net
+              <p><strong>Don't forget to save the file so your changes take effect!</strong></p>
+              <p>Now you're going to use the file manager to help you copy the folders <code>blocks</code> and <code>chainstate</code> from your usb device to the folder you made.</p>
+              <p>If you took my suggestion then the folder is:</p> <pre>/home/amnesia/Persistent/.bitcoin</pre>
+              <p><strong>It is a hidden folder so make sure to set the file manager to show hidden items.</strong></p>
+              <p>After the files have finished copying over you're going to set the proper owner for the files. Open a terminal and do this (substitute your folder if you didn't take my suggestion):</p>
+                <pre>chown -R amnesia:amnesia ~/Persistent/.bitcoin/ ~/Persistent/.bitcoin/*</pre>
+              <p>Depending on how the permissions were on the files before you copied them, you may need to use <code>sudo</code> before the last command.</p>
+              <p>Now you're pretty much done. To run bitcoind you have to enter this crazy long command:</p>
+                <code>/home/amnesia/Persistent/bitcoin-0.11.2/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code>
+              <p>Or we can turn the above into an executable script named <code>btcd</code>. If you created the data dir that I suggested then you can copy this and paste it to a terminal:</p>
+                <code>echo '#!/bin/bash</code><br>
+                <code>/home/amnesia/Persistent/bitcoin-0.11.2/bin/bitcoind -conf=/home/amnesia/Persistent/.bitcoin/bitcoin.conf</code><br>
+                <code>exit 0' > ~/Persistent/btcd && chmod +x ~/Persistent/btcd</code>
+              <p>From now on you can start bitcoind by opening a terminal and doing:</p>
+              <pre>cd ~/Persistent && btcd</pre>
+              <p class="center"><strong>- End of Method Two -<br>- End of Installing With Bitcoin Core -</strong></p>
+              </li>
+            </ol>
+          <a name="withoutbitcoin"><hr size="5" noshade><br /></a>
+        <h1 style="text-align: center">Installing <strong>Without</strong> Bitcoin Core<h1>
+          <p>I have written scripts to automate the install of libsodium (JoinMarket crypto library) and JoinMarket. We will utilize these scripts in this guide. <strong>I've intentionally written the scripts so that they can be read easily even by non-coders. I encourage you to audit <a href="https://github.com/tailsjoin/tailsjoin">the scripts</a> before running them.</strong></p>
+        <p>Some of the photos shown are a little old and may not show the exact same output that you may experience. Don't worry about that if you notice it.</p>
+        <h3>What you will need:</h3>
+          <ul>
+            <li>A USB device with Tails installed, <strong>an administrator password set, and persistence enabled.</strong><ul><li><a href="https://tails.boum.org/getting_started/index.en.html">Tails documentation on install.</a></li></ul></li>
+            <li>An internet connection.</li>
+          </ul>
+            <h3>Overview of what we will be doing:</h3>
+          <ol>
+            <li><a href="#starttwo">Start Tails.</a></li>
+            <li><a href="#verifytwo">Download and verify my script from Github.</a></li>
+            <li><a href="#runtwo">Run script.</a></li>
+          </ol>
+        <a name="starttwo"></a>
+        <h1>1. Starting Tails</h1>
+          <p>You must start Tails with persistence enabled for the sake of this guide. You don't <em>need</em> persistence, but it would be insane to go through all the time and effort and not save it.</p>
+          <p>You must also select "Yes" on the "More options?" selection.</p>
+            <img src="https://raw.githubusercontent.com/tailsjoin/tailsjoin-wiki-pics/master/1_more-options.png" />
+          <p>On the next screen set an administator password.</p>
+            <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/2_adminpass.png" />
+        <h1>2. Download and verify script</h1>
+        <a name="verifytwo"></a>
+          <p>First you are going to open a terminal. It is the icon shaped like a black square to the left of the date/time on the top panel.</p>
+          <p>Once you have the terminal open you can download my scripts from Github.</p>
+            <pre>git clone https://github.com/tailsjoin/tailsjoin</pre>
+            <img src="https://github.com/tailsjoin/tailsjoin-wiki-pics/raw/master/3_git-clone-tailsjoin.png" />
+          <p>We need to verify the scripts, but first you need to get my signing key.</p>
+            <pre>gpg --recv-keys 44C5398EA821BB41A0C070521B9184DF9E117718</pre>
+          <p>You should see an output like this:</p>
+            <pre>gpg: requesting key 0x1B9184DF9E117718 from hkps server hkps.sks-keyservers.net
 gpg: key 0x1B9184DF9E117718: public key "tailsjoin" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)</pre>
-	  <p>My signing key has been imported. Now we can verify the script.</p>
-	    <pre>cd tailsjoin/ && gpg --verify tailsjoin.sh.asc tailsjoin.sh</pre>
-	  <p>If everything goes well you should see an output like this:</p>
-	    <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
+          <p>My signing key has been imported. Now we can verify the script.</p>
+            <pre>cd tailsjoin/ && gpg --verify tailsjoin.sh.asc tailsjoin.sh</pre>
+          <p>If everything goes well you should see an output like this:</p>
+            <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
 gpg:                using RSA key 0x1B9184DF9E117718
 gpg: Good signature from "tailsjoin" [unknown]
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 44C5 398E A821 BB41 A0C0  7052 1B91 84DF 9E11 7718</pre>
-	  <p>The date of the signature may change as I make updates to the script. The part we're concerned with is:</p>
-	    <pre>gpg: Good signature from "tailsjoin" [unknown]</pre>
-	  <p>If you had a good signature, then skip to step 3.</p>
-	  <p>If you <strong>did not</strong> have a good signature something wicked happened and you need to download again. Instead of the above output you will see this:</p>
-	    <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
+          <p>The date of the signature may change as I make updates to the script. The part we're concerned with is:</p>
+            <pre>gpg: Good signature from "tailsjoin" [unknown]</pre>
+          <p>If you had a good signature, then skip to step 3.</p>
+          <p>If you <strong>did not</strong> have a good signature something wicked happened and you need to download again. Instead of the above output you will see this:</p>
+            <pre>gpg: Signature made Sat 24 Oct 2015 12:39:37 AM UTC
 gpg:                using RSA key 0x1B9184DF9E117718
 gpg: BAD signature from "tailsjoin" [unknown]</pre>
-	  <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
-	    <pre>cd .. && srm -drv tailsjoin/</pre>
-	  <p>Once that is finished start over from the beginning of step 2.</p>
-	<a name="runtwo"></a>
-	<h1>3. Run the script</h1>
-	  <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
-	    <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
-	  <p>Now we can actually run the script. The one we will run is: <code>tailsjoin.sh</code>.</p>
-	  <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script. Once it's finished you'll be ready to start using JoinMarket!</p>
-	    <pre>./tailsjoin.sh</pre>
-	  </ul>
-	  <strong><p class="center">- End of Installing Without Bitcoin Core -</p></strong>
-	  <a href="#top">Top of Page</a>
+          <p>In the case that you have a <strong>BAD</strong> signature leave the folder and securely delete files.</p>
+            <pre>cd .. && srm -drv tailsjoin/</pre>
+          <p>Once that is finished start over from the beginning of step 2.</p>
+        <a name="runtwo"></a>
+        <h1>3. Run the script</h1>
+          <p>Since we have verified our script we will now move it into the <code>Persistent</code> folder and run it from there so that our changes will survive reboots.</p>
+            <pre>cd .. && mv tailsjoin/ ~/Persistent/ && cd ~/Persistent/tailsjoin/</pre>
+          <p>Now we can actually run the script. The one we will run is: <code>tailsjoin.sh</code>.</p>
+          <p>During the script you will be prompted a few times for the admin password that you set in the beginning. Just follow along with the script. Once it's finished you'll be ready to start using JoinMarket!</p>
+            <pre>./tailsjoin.sh</pre>
+          </ul>
+          <strong><p class="center">- End of Installing Without Bitcoin Core -</p></strong>
+          <a href="#top">Top of Page</a>
       </div>
     </div>
     <div id="footer">
